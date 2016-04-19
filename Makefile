@@ -10,10 +10,7 @@ all: harddrive.img
 .PHONY: clean run
 
 .rs.o:
-	$(RUSTC) -O -A dead-code -C relocation-model=dynamic-no-pic -C no-stack-check -Z no-landing-pads --target i686-unknown-linux-gnu --crate-type lib -o $@ --emit obj $<
-
-.rs.asm:
-	$(RUSTC) -O -A dead-code -C relocation-model=dynamic-no-pic -C no-stack-check -Z no-landing-pads --target i686-unknown-linux-gnu --crate-type lib -o $@ --emit asm $<
+	$(RUSTC) -O -A dead-code -C relocation-model=dynamic-no-pic -C no-stack-check -Z no-landing-pads --target i386-unknown-redox.json --crate-type lib -L . -o $@ --emit obj $<
 
 .asm.o:
 	$(NASM) -f elf32 -o $@ $<

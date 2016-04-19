@@ -1,12 +1,11 @@
 #![feature(asm)]
 #![feature(core)]
+#![feature(core_str_ext)]
 #![feature(intrinsics)]
 #![feature(lang_items)]
 #![feature(no_std)]
 #![feature(start)]
 #![no_std]
-
-extern crate core;
 
 use common::debug::*;
 use common::memory::*;
